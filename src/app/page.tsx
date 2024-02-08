@@ -24,7 +24,7 @@ export default function Home() {
         <div className="divider"></div>
         <div className="mt-10">
           <HeadLine title="Home Decor" />
-          <div className="grid grid-cols-4 gap-4 mt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2">
 
             <PaintCard src='/media/images/image1.jpg' />
             <PaintCard src='/media/images/image3.jpg' />
@@ -55,7 +55,7 @@ export default function Home() {
               Decorate your place with our beautiful paintings. We have a wide range of paintings for your home, office, restaurant, and many more.
             </p>
           </div>
-          <div className="grid grid-cols-4 mt-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-2 gap-4">
             <CategoryCard title="Hand Paintings" image="/media/images/image28.jpeg" />
             <CategoryCard title="Acrylic Painting" image="/media/images/image18.jpeg" />
             <CategoryCard title="Wall Panting" image="/media/images/image9.jpeg" />
@@ -68,7 +68,7 @@ export default function Home() {
         </div>
         <div>
           <HeadLine title="Wall Paintings" />
-          <div className="grid grid-cols-4 gap-4 mt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2">
 
             <PaintCard src='/media/images/image5.jpg' />
             <PaintCard src='/media/images/image6.jpg' />
@@ -93,7 +93,7 @@ export default function Home() {
 
         <div>
           <HeadLine title="Portrait" />
-          <div className="grid grid-cols-4 gap-4 mt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2">
 
             <PaintCard src='/media/images/image25.jpeg' />
             <PaintCard src='/media/images/image26.jpeg' />
@@ -121,7 +121,7 @@ export default function Home() {
         {/* Painting on sale */}
         <div className="mt-10">
           <HeadLine title="Trending This Month" />
-          <div className="grid grid-cols-4 gap-4 mt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2">
             <PaintCard src='/media/images/image37.jpeg' />
             <PaintCard src='/media/images/image38.jpeg' />
             <PaintCard src='/media/images/image10.jpeg' />
