@@ -12,7 +12,7 @@ export default function Home() {
         <div>
           <ImageSlider />
         </div>
-        <div className="divider"></div>
+
         {/* <div className="">
           <HeadLine title="Hot Deals" />
           <div className="grid grid-cols-4 mt-2 gap-4">
@@ -21,7 +21,7 @@ export default function Home() {
             <HotDealsCard title="Holi Special" />
           </div>
         </div> */}
-        <div className="divider"></div>
+
         <div className="mt-10">
           <HeadLine title="Home Decor" />
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2">
