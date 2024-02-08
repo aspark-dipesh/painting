@@ -1,113 +1,149 @@
 import Image from "next/image";
+import PaintCard from "./components/PaintCard";
+import HotDealsCard from "./components/HotDealsCard";
+import HeadLine from "./components/HeadLine";
+import CategoryCard from "./components/CategoryCard";
+import ImageSlider from "./components/ImageSlider";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="mt-5 container mx-auto">
+        <div>
+          <ImageSlider />
+        </div>
+        <div className="divider"></div>
+        {/* <div className="">
+          <HeadLine title="Hot Deals" />
+          <div className="grid grid-cols-4 mt-2 gap-4">
+            <HotDealsCard title="Dashin Deal" />
+            <HotDealsCard title="Thihar Deal" />
+            <HotDealsCard title="Holi Special" />
+          </div>
+        </div> */}
+        <div className="divider"></div>
+        <div className="mt-10">
+          <HeadLine title="Home Decor" />
+          <div className="grid grid-cols-4 gap-4 mt-2">
+
+            <PaintCard src='/media/images/image1.jpg' />
+            <PaintCard src='/media/images/image3.jpg' />
+            <PaintCard src='/media/images/image20.jpeg' />
+
+
+            <PaintCard src='/media/images/image2.jpg' />
+            <PaintCard src='/media/images/image19.jpeg' />
+            <PaintCard src='/media/images/image4.jpg' />
+
+            <PaintCard src='/media/images/image8.jpeg' />
+            <PaintCard src='/media/images/image9.jpeg' />
+            <PaintCard src='/media/images/image10.jpeg' />
+
+
+            <PaintCard src='/media/images/image12.jpeg' />
+            <PaintCard src='/media/images/image13.jpeg' />
+            <PaintCard src='/media/images/image15.jpeg' />
+
+
+          </div>
+        </div>
+        <div className="divider"></div>
+        <div className="bg-base-200 p-3 mt-3 rounded">
+          <div>
+            <h2 className="font-bold text-2xl text-center mt-5">Explore the Collection</h2>
+            <p className="max-w-lg text-center mx-auto">
+              Decorate your place with our beautiful paintings. We have a wide range of paintings for your home, office, restaurant, and many more.
+            </p>
+          </div>
+          <div className="grid grid-cols-4 mt-2 gap-4">
+            <CategoryCard title="Hand Paintings" image="/media/images/image28.jpeg" />
+            <CategoryCard title="Acrylic Painting" image="/media/images/image18.jpeg" />
+            <CategoryCard title="Wall Panting" image="/media/images/image9.jpeg" />
+            <CategoryCard title="Oil Paintings" image="/media/images/image40.jpeg" />
+            <CategoryCard title="Spiritual" image="/media/images/image36.jpeg" />
+            <CategoryCard title="Hand Painting Signage" image="/media/images/image43.jpeg" />
+            <CategoryCard title="Portrait" image="/media/images/image38.jpeg" />
+
+          </div>
+        </div>
+        <div>
+          <HeadLine title="Wall Paintings" />
+          <div className="grid grid-cols-4 gap-4 mt-2">
+
+            <PaintCard src='/media/images/image5.jpg' />
+            <PaintCard src='/media/images/image6.jpg' />
+            <PaintCard src='/media/images/image7.jpg' />
+
+            <PaintCard src='/media/images/image16.jpeg' />
+            <PaintCard src='/media/images/image4.jpg' />
+            <PaintCard src='/media/images/image11.jpeg' />
+
+            <PaintCard src='/media/images/image17.jpeg' />
+            <PaintCard src='/media/images/image18.jpeg' />
+            <PaintCard src='/media/images/image19.jpeg' />
+
+            <PaintCard src='/media/images/image21.jpeg' />
+            <PaintCard src='/media/images/image22.jpeg' />
+            <PaintCard src='/media/images/image32.jpeg' />
+
+
+          </div>
+
+        </div>
+
+        <div>
+          <HeadLine title="Portrait" />
+          <div className="grid grid-cols-4 gap-4 mt-2">
+
+            <PaintCard src='/media/images/image25.jpeg' />
+            <PaintCard src='/media/images/image26.jpeg' />
+            <PaintCard src='/media/images/image27.jpeg' />
+
+
+            <PaintCard src='/media/images/image30.jpeg' />
+            <PaintCard src='/media/images/image29.jpeg' />
+            <PaintCard src='/media/images/image28.jpeg' />
+
+
+            <PaintCard src='/media/images/image31.jpeg' />
+            <PaintCard src='/media/images/image32.jpeg' />
+            <PaintCard src='/media/images/image33.jpeg' />
+
+            <PaintCard src='/media/images/image34.jpeg' />
+            <PaintCard src='/media/images/image35.jpeg' />
+            <PaintCard src='/media/images/image36.jpeg' />
+
+
+          </div>
+
+        </div>
+
+        {/* Painting on sale */}
+        <div className="mt-10">
+          <HeadLine title="Trending This Month" />
+          <div className="grid grid-cols-4 gap-4 mt-2">
+            <PaintCard src='/media/images/image37.jpeg' />
+            <PaintCard src='/media/images/image38.jpeg' />
+            <PaintCard src='/media/images/image10.jpeg' />
+            <PaintCard src='/media/images/image41.jpeg' />
+            <PaintCard src='/media/images/image42.jpeg' />
+            <PaintCard src='/media/images/image24.jpeg' />
+
+
+
+            <PaintCard src='/media/images/image40.jpeg' />
+            <PaintCard src='/media/images/image43.jpeg' />
+            <PaintCard src='/media/images/image23.jpeg' />
+
+            <PaintCard src='/media/images/image15.jpeg' />
+            <PaintCard src='/media/images/image19.jpeg' />
+            <PaintCard src='/media/images/image8.jpeg' />
+
+
+          </div>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
