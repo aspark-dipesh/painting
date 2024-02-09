@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 interface IProps {
     src: string
@@ -8,7 +9,7 @@ interface IProps {
 const PaintCard = ({ src }: IProps) => {
     return (
         <div className='relative w-full card shadow-sm bg-slate-200 p-2 '>
-            <div className='w-full aspect-[4/3] relative'>
+            <Link href={`/productname?src=${src}`} className='w-full aspect-[4/3] relative'>
                 <Image
                     fill
                     src={src}
@@ -17,7 +18,7 @@ const PaintCard = ({ src }: IProps) => {
                     objectFit='cover'
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-            </div>
+            </Link>
 
             <div className='p-2'>
                 <div className='text-2xl font-bold'>Painting Name</div>
