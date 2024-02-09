@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const page = () => {
@@ -136,8 +137,8 @@ const page = () => {
                         <li className="flex flex-wrap gap-4 text-md py-4">Tax <span className="ml-auto font-bold">$4.00</span></li>
                         <li className="flex flex-wrap gap-4 text-md py-4 font-bold">Total <span className="ml-auto">$45.00</span></li>
                     </ul>
-                    <button type="button" className="mt-6 text-md px-6 py-2.5 w-full bg-blue-600 hover:bg-blue-700 text-white rounded">Check
-                        out</button>
+                    <Link type='button' href={'/checkout'} className="mt-6 text-md px-6 py-2.5 w-full bg-blue-600 hover:bg-blue-700 text-white rounded">Check
+                        out</Link>
                 </div>
             </div>
         </div>
