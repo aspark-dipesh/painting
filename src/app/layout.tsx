@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "./components/navbar";
 import { lusitana } from "./ui/font";
+import { PopUpBanner } from "./components/PopUpBanner";
 
 export const metadata: Metadata = {
   title: "Painters Mart",
@@ -17,8 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lusitana.className}>
+        <PopUpBanner />
         <Navbar />
-        {children}
+        <main>{children}</main>
 
         <footer className="footer footer-center p-10 bg-base-300 text-primary-content mt-3">
           <aside>
