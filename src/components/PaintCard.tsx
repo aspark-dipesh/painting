@@ -1,3 +1,4 @@
+import { Brush, Palette } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -37,54 +38,28 @@ const PaintCard = ({ src }: IProps) => {
             </div>
           </dl>
 
-          <div className="mt-6 flex items-center gap-8 text-xs">
-            <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-              <svg
-                className="size-4 text-indigo-700"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                />
-              </svg>
+          <div className="mt-6 flex items-center gap-4 justify-between text-xs">
+            <div className="sm:inline-flex sm:shrink-0 sm:items-start sm:gap-2 flex flex-col">
+              <Brush size={16} />
 
-              <div className="mt-1.5 sm:mt-0">
+              <div className="mt-1.5 sm:mt-0 flex flex-col">
                 <p className="text-gray-500">Mediums</p>
 
                 <p className="font-medium">Watercolor</p>
               </div>
             </div>
 
-            <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-              <svg
-                className="size-4 text-indigo-700"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                />
-              </svg>
+            <div className="sm:inline-flex sm:shrink-0 sm:items-start sm:gap-2 flex flex-col">
+              <Palette size={16} />
 
-              <div className="mt-1.5 sm:mt-0">
+              <div className="mt-1.5 sm:mt-0 flex flex-col">
                 <p className="text-gray-500">Styles</p>
 
                 <p className="font-medium">Abstract</p>
               </div>
             </div>
 
-            <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+            <div className="sm:inline-flex sm:shrink-0 sm:items-start sm:gap-2 flex flex-col">
               <svg
                 className="size-4 text-indigo-700"
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +75,7 @@ const PaintCard = ({ src }: IProps) => {
                 />
               </svg>
 
-              <div className="mt-1.5 sm:mt-0">
+              <div className="mt-1.5 sm:mt-0 flex flex-col">
                 <p className="text-gray-500">Subject Matter</p>
 
                 <p className="font-medium">portraits</p>
