@@ -8,7 +8,7 @@ export const Navbar = () => {
       <div className="mx-auto container px-4 md:px-0 ">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <a className="block text-teal-600" href="#">
+            <Link className="block text-teal-600" href="/">
               <span className="sr-only">Home</span>
               <Image
                 src="/media/logo.svg"
@@ -17,7 +17,7 @@ export const Navbar = () => {
                 height={50}
                 className="object-contain"
               />
-            </a>
+            </Link>
           </div>
 
           <div className="md:flex md:items-center md:gap-12">
@@ -26,7 +26,7 @@ export const Navbar = () => {
                 <li>
                   <Link
                     className="text-lg font-semibold transition hover:text-gray-500/75"
-                    href="#"
+                    href="/collection"
                   >
                     Gallery
                   </Link>
@@ -44,7 +44,7 @@ export const Navbar = () => {
                 <li>
                   <Link
                     className="text-lg font-semibold transition hover:text-gray-500/75"
-                    href="#"
+                    href="/contact"
                   >
                     Contact
                   </Link>
@@ -53,14 +53,14 @@ export const Navbar = () => {
                 <li>
                   <Link
                     className="text-lg font-semibold transition hover:text-gray-500/75"
-                    href="#"
+                    href="/cart"
                   >
                     Cart
                   </Link>
                 </li>
               </ul>
             </nav>
-            <div className="md:flex items-end gap-4 hidden">
+            {/* <div className="md:flex items-end gap-4 hidden">
               <div className="sm:flex sm:gap-4">
                 <a
                   className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
@@ -69,7 +69,7 @@ export const Navbar = () => {
                   Login
                 </a>
               </div>
-            </div>
+            </div> */}
 
             <div className="flex items-center gap-4">
               <div className="block md:hidden">

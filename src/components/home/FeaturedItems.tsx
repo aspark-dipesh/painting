@@ -37,7 +37,7 @@ export function FeaturedItems() {
   return (
     <div className="px-4 py-8 sm:px-6 lg:me-0 lg:py-12 lg:pe-0 lg:ps-8 xl:py-16">
       <div className="container mx-auto">
-        <HeadLine title="Featured Painting" />
+        <HeadLine title="Featured Painting" path="/collection" />
         <div
           ref={sliderRef}
           className="keen-slider relative"

@@ -8,7 +8,7 @@ import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Painters Mart",
+  title: "Painter Krishna",
   description: "Decorative Painting Shop",
 };
 
