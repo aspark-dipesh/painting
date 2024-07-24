@@ -27,7 +27,7 @@ export default function CTA() {
           </div>
         </div>
       </div>
-      <div className="sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-ss-[30px] md:h-[calc(100%_-_4rem)] md:rounded-ss-[60px] relative overflow-hidden">
+      <div className=" min-h-[400px] sm:self-end sm:rounded-ss-[30px]  md:rounded-ss-[60px] relative overflow-hidden">
         <Image
           alt=""
           src="/media/images/image5.jpg"
