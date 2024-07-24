@@ -12,7 +12,7 @@ const PaintCard = ({ src }: IProps) => {
     <>
       <a
         href={`/productname?src=${src}`}
-        className="block rounded-lg p-4 shadow-sm shadow-indigo-100"
+        className="block rounded-lg p-2 shadow-sm shadow-indigo-900"
       >
         <div className="w-full aspect-[4/3] relative overflow-hidden rounded-lg z-0">
           <Image
@@ -41,7 +41,6 @@ const PaintCard = ({ src }: IProps) => {
           <div className="mt-6 flex items-center gap-4 justify-between text-xs">
             <div className="sm:inline-flex sm:shrink-0 sm:items-start sm:gap-2 flex flex-col">
               <Brush size={16} />
-
               <div className="mt-1.5 sm:mt-0 flex flex-col">
                 <p className="text-gray-500">Mediums</p>
 

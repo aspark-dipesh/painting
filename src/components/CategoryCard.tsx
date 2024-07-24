@@ -3,13 +3,13 @@ import React from "react";
 
 const CategoryCard = ({ title, image }: { title: string; image: string }) => {
   return (
-    <div className="w-full h-80 shadow-md p-3 flex flex-col gap-1 rounded-br-3xl">
-      <div className="h-48 relative ">
+    <div className="w-full shadow-md p-3 flex flex-col gap-1 rounded-br-3xl">
+      <div className="w-full aspect-[4/3] relative ">
         <Image
           src={image}
           alt="Picture of the author"
           fill
-          className="rounded-tl-3xl"
+          className="rounded-tl-3xl object-cover"
           sizes="max-width(768) 100vw, 50vw"
         />
       </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 
-import { lusitana } from "./ui/font";
+import { poppins } from "@/components/ui/font";
 import { PopUpBanner } from "@/components/PopUpBanner";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
@@ -19,10 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={lusitana.className}>
+      <body className={poppins.className}>
         <PopUpBanner />
         <Navbar />
-        <main>{children}</main>
+        <main className="min-h-[80vh]">{children}</main>
         <Footer />
       </body>
     </html>
