@@ -4,18 +4,18 @@ import React from "react";
 
 export const Navbar = () => {
   return (
-    <header className="bg-white">
+    <header className="bg-rose-700 text-white">
       <div className="mx-auto container px-4 md:px-0 ">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <Link className="block text-teal-600" href="/">
               <span className="sr-only">Home</span>
               <Image
-                src="/media/logo.svg"
+                src="/media/logo2.png"
                 alt=""
-                width={50}
-                height={50}
-                className="object-contain"
+                width={150}
+                height={100}
+                className="object-contain !relative"
               />
             </Link>
           </div>
@@ -25,7 +25,7 @@ export const Navbar = () => {
               <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <Link
-                    className="text-lg font-semibold transition hover:text-gray-500/75"
+                    className="text-lg font-semibold transition hover:text-gray-200/75 uppercase"
                     href="/collection"
                   >
                     Gallery
@@ -34,7 +34,7 @@ export const Navbar = () => {
 
                 <li>
                   <Link
-                    className="text-lg font-semibold transition hover:text-gray-500/75"
+                    className="text-lg font-semibold transition hover:text-gray-200/75 uppercase"
                     href="#"
                   >
                     About us
@@ -43,7 +43,7 @@ export const Navbar = () => {
 
                 <li>
                   <Link
-                    className="text-lg font-semibold transition hover:text-gray-500/75"
+                    className="text-lg font-semibold transition hover:text-gray-200/75 uppercase"
                     href="/contact"
                   >
                     Contact
@@ -52,7 +52,7 @@ export const Navbar = () => {
 
                 <li>
                   <Link
-                    className="text-lg font-semibold transition hover:text-gray-500/75"
+                    className="text-lg font-semibold transition hover:text-gray-200/75 uppercase"
                     href="/cart"
                   >
                     Cart

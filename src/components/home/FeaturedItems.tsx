@@ -6,50 +6,63 @@ import HeadLine from "../HeadLine";
 import PaintCard from "../PaintCard";
 
 export function FeaturedItems() {
-  const animation = { duration: 20000, easing: (t: number) => t };
-  const [sliderRef, instanceRef] = useKeenSlider({
-    loop: true,
-    mode: "free-snap",
-    drag: true,
-    breakpoints: {
-      "(min-width: 640px)": {
-        slides: { perView: 2, spacing: 5 },
+  const animation = { duration: 20000 };
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
+    {
+      loop: true,
+      mode: "free-snap",
+      drag: true,
+      defaultAnimation: { duration: 2000 },
+      breakpoints: {
+        "(min-width: 640px)": {
+          slides: { perView: 2, spacing: 5 },
+        },
+        "(min-width: 1024px)": {
+          slides: { perView: 3, spacing: 10 },
+        },
+        "(min-width: 1360px)": {
+          slides: { perView: 4, spacing: 10 },
+        },
       },
-      "(min-width: 1024px)": {
-        slides: { perView: 3, spacing: 10 },
-      },
-      "(min-width: 1360px)": {
-        slides: { perView: 4, spacing: 10 },
-      },
+      slides: { perView: 1 },
+      renderMode: "performance",
     },
-    slides: { perView: 1 },
-    renderMode: "performance",
-    created(s) {
-      s.moveToIdx(5, true, animation);
-    },
-    // updated(s) {
-    //   s.moveToIdx(s.track.details.abs + 5, true, animation);
-    // },
-    // animationEnded(s) {
-    //   s.moveToIdx(s.track.details.abs + 5, true, animation);
-    // },
-  });
+    [
+      (slider) => {
+        let timeout: ReturnType<typeof setTimeout>;
+        let mouseOver = false;
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 2000);
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
+      },
+    ]
+  );
   return (
     <div className="px-4 py-8 sm:px-6 lg:me-0 lg:py-12 lg:pe-0 lg:ps-8 xl:py-16">
       <div className="container mx-auto">
         <HeadLine title="Featured Painting" path="/collection" />
-        <div
-          ref={sliderRef}
-          className="keen-slider relative"
-          onMouseEnter={instanceRef?.current?.animator.stop}
-          onMouseLeave={() =>
-            instanceRef?.current?.moveToIdx(
-              instanceRef?.current?.track.details.abs + 5,
-              true,
-              animation
-            )
-          }
-        >
+        <div ref={sliderRef} className="keen-slider relative">
           <div className="keen-slider__slide p-2">
             <PaintCard src="/media/images/image1.jpg" />
           </div>

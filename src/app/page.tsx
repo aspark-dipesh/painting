@@ -14,11 +14,11 @@ export default function Home() {
     <>
       {/* Hero section */}
       <Banner />
-      <CategorySection />
-      {/* cta section 1 */}
-      <CTA />
       {/* featured section */}
       <FeaturedItems />
+      {/* cta section 1 */}
+      <CTA />
+      <CategorySection />
       {/* word from artist */}
       <WordFromArtist />
       {/* testimonial */}

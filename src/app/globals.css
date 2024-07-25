@@ -3,9 +3,46 @@
 @tailwind utilities;
 
 @media (min-width: 640px) {
-    .container {
-        max-width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-      }
+  .container {
+    max-width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  width: 150px; /* Adjust size as needed */
+  aspect-ratio: 3 / 4;
+  z-index: 999;
+  cursor: zoom-in;
+}
+.img-zoom-lens:hover {
+  border: 1px solid #d4d4d4;
+  background-color: #0000002a;
+}
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  width: 100%; /* Adjust size as needed */
+  aspect-ratio: 3 / 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.img-magnifier-container {
+  position: relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  width: 200px;
+  height: 200px;
+  display: none; /* Initially hide the magnifier glass */
 }
