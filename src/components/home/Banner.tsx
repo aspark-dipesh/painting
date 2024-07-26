@@ -1,10 +1,11 @@
 import { useKeenSlider } from "keen-slider/react";
+import Link from "next/link";
 
 export default function Banner() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
-      mode: "free-snap",
+      mode: "snap",
       drag: true,
       defaultAnimation: { duration: 1000 },
       slides: { perView: 1 },
@@ -43,58 +44,50 @@ export default function Banner() {
   );
   return (
     <div ref={sliderRef} className="keen-slider relative ">
-      <section className="keen-slider__slide  relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat max-h-[70vh]">
+      <section className="keen-slider__slide  relative bg-[url('/media/banner2.jpg')] bg-cover bg-center bg-no-repeat max-h-[70vh]">
         <div className="absolute inset-0  from-gray-900/95 to-gray-900/25 bg-gradient-to-r "></div>
 
         <div className="relative max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
           <div className="max-w-xl ltr:sm:text-left rtl:sm:text-right">
-            <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
-              Let us find your
+            <h1 className="text-3xl font-extrabold text-white sm:text-4xl">
+              Transform Your Space with
               <strong className="block font-extrabold text-rose-500">
-                {" "}
-                Forever Home.{" "}
+                Exquisite Art
               </strong>
             </h1>
 
             <p className="mt-4 max-w-lg text-white sm:text-xl/relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
+              Discover a Curated Collection of Paintings by Renowned Artist
+              Krishna. From Realistic Landscapes to Abstract Masterpieces, Find
+              Art That Speaks to You
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 text-center">
-              <a
-                href="#"
+              <Link
+                href="/collection"
                 className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
               >
-                Get Started
-              </a>
-
-              <a
-                href="#"
-                className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-              >
-                Learn More
-              </a>
+                Shop Now
+              </Link>
             </div>
           </div>
         </div>
       </section>
-      <section className="keen-slider__slide  relative bg-[url(https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat max-h-[70vh]">
+      <section className="keen-slider__slide  relative bg-[url('/media/banner1.jpg')] bg-cover bg-center bg-no-repeat max-h-[70vh]">
         <div className="absolute inset-0  from-gray-900/95 to-gray-900/25 bg-gradient-to-r "></div>
 
         <div className="relative max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
           <div className="max-w-xl ltr:sm:text-left rtl:sm:text-right">
             <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
-              Let us find your
+              Unleash Your Imagination with
               <strong className="block font-extrabold text-rose-500">
-                {" "}
-                Forever Home.{" "}
+                Art by Krishna
               </strong>
             </h1>
 
             <p className="mt-4 max-w-lg text-white sm:text-xl/relaxed">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
+              Experience the Fusion of Creativity and Passion in Every
+              Brushstroke. Unique Paintings for Every Style and Space
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4 text-center">

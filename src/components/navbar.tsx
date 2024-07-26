@@ -162,11 +162,24 @@ export const Navbar = () => {
                 href="/collection"
                 className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
               >
-                Photography
+                Spiritual
               </Link>
               <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
                 <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
                   7
+                </div>
+              </div>
+            </div>
+            <div className="group h-full flex flex-1 min-w-fit items-center">
+              <Link
+                href="/collection"
+                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
+              >
+                Hand Painting
+              </Link>
+              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
+                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
+                  8
                 </div>
               </div>
             </div>
