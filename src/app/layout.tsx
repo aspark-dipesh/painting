@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <PopUpBanner />
         <Navbar />
-        <main className="min-h-[80vh]">{children}</main>
+        <main className="min-h-[80vh] container mt-2">{children}</main>
         <Footer />
       </body>
     </html>
