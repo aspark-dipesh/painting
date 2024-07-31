@@ -10,8 +10,7 @@ export default function Footer() {
           <form className="mt-6">
             <div className="relative max-w-lg">
               <label className="sr-only" htmlFor="email">
-                {" "}
-                Email{" "}
+                Email
               </label>
 
               <input
@@ -34,7 +33,6 @@ export default function Footer() {
               To get the latest painting and sales offer sign up for our
               newsletter
             </p>
-
             <div className="mt-6 flex justify-center gap-4 lg:justify-start">
               <a
                 className="text-gray-700 transition hover:text-gray-700/75"
@@ -144,9 +142,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-8 lg:grid-cols-3 lg:text-left">
             <div>
-              <strong className="font-medium text-gray-900"> Services </strong>
+              <strong className="font-medium text-gray-900">Services</strong>
 
               <ul className="mt-6 space-y-1">
                 <li>

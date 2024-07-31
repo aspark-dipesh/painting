@@ -1,3 +1,4 @@
+"use client";
 import { useKeenSlider } from "keen-slider/react";
 import Link from "next/link";
 

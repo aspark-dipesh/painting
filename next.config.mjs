@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images:{
+        remotePatterns:[
+            {
+                hostname:'painter.backend.bidhee.net',
+                pathname:'**/*',
+                protocol:'https',
+            }
+        ]
+    }
+};
 
 export default nextConfig;

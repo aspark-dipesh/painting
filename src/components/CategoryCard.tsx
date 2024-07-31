@@ -3,7 +3,7 @@ import React from "react";
 
 const CategoryCard = ({ title, image }: { title: string; image: string }) => {
   return (
-    <div className="w-full shadow-md p-3 flex flex-col gap-1 rounded-br-3xl">
+    <div className="w-full shadow-md p-1  md:p-3 flex flex-col gap-1 rounded-br-3xl">
       <div className="w-full aspect-[4/3] relative ">
         <Image
           src={image}
@@ -16,7 +16,7 @@ const CategoryCard = ({ title, image }: { title: string; image: string }) => {
       <div className="flex flex-col gap-4">
         <div className="flex flex-col justify-between">
           <div className="flex flex-col">
-            <span className="text-xl font-bold">{title}</span>
+            <span className="text-lg font-bold">{title}</span>
           </div>
           <span className="font-bold text-end text-red-600">
             +220 Paintings

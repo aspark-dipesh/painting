@@ -75,7 +75,7 @@ const ImageZoom: React.FC<ImageZoomProps> = ({ src, imgId, alt, onZoom }) => {
       };
     }
   }, [src, onZoom]);
-  console.log(src);
+
   return (
     <div className="img-zoom-container relative w-full  " id="img-div">
       <Image

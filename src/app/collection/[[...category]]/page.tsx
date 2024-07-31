@@ -1,7 +1,26 @@
 import Pagination from "@/components/Pagination";
 import PaintCard from "@/components/PaintCard";
-
-export default async function Collection() {
+import { IPagination, IProduct } from "@/interface";
+import { ParsedUrlQuery } from "querystring";
+async function GetProductList({
+  page,
+}: {
+  page: string;
+}): Promise<IPagination<IProduct>> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/products/?page=${page}`
+  );
+  if (!res.ok) throw new Error("Failed to fetch data");
+  return await res.json();
+}
+export default async function Collection({
+  searchParams,
+}: {
+  searchParams: ParsedUrlQuery;
+}) {
+  const page = (searchParams.page || 1) as string;
+  const products = await GetProductList({ page });
+  const totalPage = Math.ceil(products.count / 10);
   return (
     <>
       <section>
@@ -562,28 +581,13 @@ export default async function Collection() {
 
             <div className="lg:col-span-3">
               <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <li>
-                  <PaintCard src="/media/images/image1.jpg" />
-                </li>
-
-                <li>
-                  <PaintCard src="/media/images/image3.jpg" />
-                </li>
-
-                <li>
-                  <PaintCard src="/media/images/image20.jpg" />
-                </li>
-                <li>
-                  <PaintCard src="/media/images/image2.jpg" />
-                </li>
-                <li>
-                  <PaintCard src="/media/images/image19.jpg" />
-                </li>
-                <li>
-                  <PaintCard src="/media/images/image4.jpg" />
-                </li>
+                {products.results.map((product) => (
+                  <li key={product.id}>
+                    <PaintCard product={product} />
+                  </li>
+                ))}
               </ul>
-              <Pagination totalPages={12} />
+              <Pagination totalPages={totalPage} />
             </div>
           </div>
         </div>

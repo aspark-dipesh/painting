@@ -1,23 +1,22 @@
+import { IProduct } from "@/interface";
 import { Brush, Palette } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 interface IProps {
-  src: string;
-  name?: string;
-  price?: number;
+  product: IProduct;
 }
-const PaintCard = ({ src }: IProps) => {
+const PaintCard = ({ product }: IProps) => {
   return (
     <>
-      <a
-        href={`/productname?src=${src}`}
+      <Link
+        href={`/${product.slug}`}
         className="block rounded-lg p-2 shadow-sm shadow-indigo-900"
       >
         <div className="w-full aspect-[4/3] relative overflow-hidden rounded-lg z-0">
           <Image
             fill
-            src={src}
+            src={product.featured_image}
             className="w-full hover:scale-110 transition-all object-cover"
             alt="image1"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -28,17 +27,19 @@ const PaintCard = ({ src }: IProps) => {
             <div>
               <dt className="sr-only">Price</dt>
 
-              <dd className="text-sm text-gray-500">$240,000</dd>
+              <dd className="text-md text-gray-500 font-bold">
+                ${product.price}
+              </dd>
             </div>
 
             <div>
               <dt className="sr-only">name</dt>
 
-              <dd className="font-medium uppercase">painting name</dd>
+              <dd className="font-medium uppercase">{product.title}</dd>
             </div>
           </dl>
 
-          <div className="mt-6 flex items-center gap-4 justify-between text-xs">
+          {/* <div className="mt-6 flex items-center gap-4 justify-between text-xs">
             <div className="sm:inline-flex sm:shrink-0 sm:items-start sm:gap-2 flex flex-col">
               <Brush size={16} />
               <div className="mt-1.5 sm:mt-0 flex flex-col">
@@ -80,9 +81,9 @@ const PaintCard = ({ src }: IProps) => {
                 <p className="font-medium">portraits</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-      </a>
+      </Link>
     </>
   );
 };

@@ -1,15 +1,18 @@
-"use client";
 import WordFromArtist from "@/components/home/AWordFromArtist";
 import Banner from "@/components/home/Banner";
 import CategorySection from "@/components/home/CategorySection";
+import { ContactUs } from "@/components/home/ContactUs";
 import CTA from "@/components/home/CTA";
 import { FeaturedItems } from "@/components/home/FeaturedItems";
 import Testimonial from "@/components/home/Testimonial";
-import HeadLine from "../components/HeadLine";
-import PaintCard from "../components/PaintCard";
-import { ContactUs } from "@/components/home/ContactUs";
-
-export default function Home() {
+import { ICategory } from "@/interface/index";
+async function GetCategoryList(): Promise<ICategory[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/`);
+  if (!res.ok) throw new Error("Failed to fetch data");
+  return await res.json();
+}
+export default async function Home() {
+  const categories = await GetCategoryList();
   return (
     <>
       {/* Hero section */}
@@ -18,7 +21,7 @@ export default function Home() {
       <FeaturedItems />
       {/* cta section 1 */}
       <CTA />
-      <CategorySection />
+      <CategorySection categories={categories} />
       {/* word from artist */}
       <WordFromArtist />
       {/* testimonial */}

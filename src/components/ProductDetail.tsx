@@ -1,8 +1,9 @@
 "use client";
 import React, { useCallback, useRef, useState } from "react";
 import ImageZoom from "./ImageZoom";
+import { IProduct } from "@/interface";
 
-const ProductDetail = ({ src }: { src: string }) => {
+const ProductDetail = ({ product }: { product: IProduct }) => {
   const resultRef = useRef<HTMLDivElement>(null);
   const handleZoom = useCallback(
     (src: string, width: number, height: number, x: number, y: number) => {
@@ -24,7 +25,7 @@ const ProductDetail = ({ src }: { src: string }) => {
           onMouseLeave={() => setShowZoom(false)}
         >
           <ImageZoom
-            src={src}
+            src={product.featured_image}
             imgId={`image-featured`}
             onZoom={handleZoom}
             alt=""
@@ -44,10 +45,10 @@ const ProductDetail = ({ src }: { src: string }) => {
             )}
           </div>
           <h2 className="text-2xl font-extrabold text-gray-800">
-            Meanwhile the sun is always shining Painting
+            {product.title}
           </h2>
           <div className="flex flex-wrap gap-4 mt-4">
-            <p className="text-gray-800 text-xl font-bold">$12</p>
+            <p className="text-gray-800 text-xl font-bold">${product.price}</p>
             <p className="text-gray-400 text-xl">
               {" "}
               <span className="text-sm ml-1">Tax included</span>

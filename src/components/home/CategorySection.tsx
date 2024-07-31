@@ -1,6 +1,11 @@
+import { ICategory } from "@/interface";
 import CategoryCard from "../CategoryCard";
 
-export default function CategorySection() {
+export default function CategorySection({
+  categories,
+}: {
+  categories: ICategory[];
+}) {
   return (
     <section className="bg-base-200 p-3 mt-3 rounded container mx-auto">
       <div>
@@ -12,22 +17,14 @@ export default function CategorySection() {
           of paintings for your home, office, restaurant, and many more.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 mt-2 gap-4">
-        <CategoryCard
-          title="Hand Paintings"
-          image="/media/images/image28.jpg"
-        />
-        <CategoryCard
-          title="Acrylic Painting"
-          image="/media/images/image18.jpg"
-        />
-        <CategoryCard title="Wall Panting" image="/media/images/image9.jpg" />
-        <CategoryCard title="Oil Paintings" image="/media/images/image40.jpg" />
-        <CategoryCard title="Spiritual" image="/media/images/image36.jpg" />
-        <CategoryCard
-          title="Hand Painting Signage"
-          image="/media/images/image43.jpg"
-        />
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-2 gap-4">
+        {categories.map((category) => (
+          <CategoryCard
+            key={category.id}
+            title={category.title}
+            image={category.featured_image}
+          />
+        ))}
       </div>
     </section>
   );

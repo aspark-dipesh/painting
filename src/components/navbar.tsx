@@ -1,4 +1,6 @@
+import { ICategory } from "@/interface";
 import {
+  AlignJustify,
   Calendar,
   CircleUserRound,
   MapPin,
@@ -10,7 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export const Navbar = () => {
+export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
   return (
     <header className="">
       <div className="w-full bg-[#f6f2ef] border-b border-[#e5dbcd] ">
@@ -20,8 +22,8 @@ export const Navbar = () => {
           </Link>
         </div>
       </div>
-      <div className="container mx-auto flex justify-between py-4">
-        <div>
+      <div className="container mx-auto flex flex-col md:flex-row justify-between py-4">
+        <div className="flex justify-between gap-3 md:block w-full md:w-fit">
           <Link className="block text-teal-600" href="/">
             <span className="sr-only">Home</span>
             <Image
@@ -32,9 +34,15 @@ export const Navbar = () => {
               className="object-contain !relative"
             />
           </Link>
+          <div>
+            <label htmlFor="menu">
+              <AlignJustify className="md:hidden" />
+            </label>
+            <input type="checkbox" id="menu" className="sr-only peer" />
+          </div>
         </div>
-        <div className="flex items-center justify-end gap-3 text-rose-600">
-          <div className="relative">
+        <div className="flex items-center mt-2 justify-between md:justify-end gap-3 text-rose-600">
+          <div className="relative hidden md:block">
             <label htmlFor="Search" className="sr-only">
               Search
             </label>
@@ -57,22 +65,22 @@ export const Navbar = () => {
               </button>
             </span>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center ">
             <MapPin className="w-6 h-6" />
             <span className="text-xs">Store</span>
           </div>
           <div className="flex flex-col items-center">
             <Calendar className="w-6 h-6" />
-            <span className="text-xs">WorkShop</span>
+            <span className="text-xs ">WorkShop</span>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center ">
             <CircleUserRound className="w-6 h-6" />
-            <span className="text-xs">Sign In/Up</span>
+            <span className="text-xs ">Sign In/Up</span>
           </div>
-          <div className="flex flex-col items-center">
+          <Link href="/cart" className="flex flex-col items-center">
             <ShoppingBasket className="w-6 h-6" />
-            <span className="text-xs">Bag</span>
-          </div>
+            <span className="text-xs ">Bag</span>
+          </Link>
         </div>
       </div>
       <div className="mx-auto container   text-base  uppercase hidden  lg:flex">

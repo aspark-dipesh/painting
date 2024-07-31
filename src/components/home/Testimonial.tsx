@@ -1,3 +1,4 @@
+"use client";
 import { useKeenSlider } from "keen-slider/react";
 
 export default function Testimonial() {
@@ -299,6 +300,7 @@ export default function Testimonial() {
 
         <div className="mt-8 flex justify-center gap-4 lg:hidden">
           <button
+            onClick={() => instanceRef.current?.prev()}
             aria-label="Previous slide"
             id="keen-slider-previous"
             className="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
@@ -321,6 +323,7 @@ export default function Testimonial() {
 
           <button
             aria-label="Next slide"
+            onClick={() => instanceRef.current?.next()}
             id="keen-slider-next"
             className="rounded-full border border-rose-600 p-4 text-rose-600 transition hover:bg-rose-600 hover:text-white"
           >

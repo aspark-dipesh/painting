@@ -24,7 +24,7 @@ export function FeaturedItems() {
           slides: { perView: 4, spacing: 10 },
         },
       },
-      slides: { perView: 1 },
+      slides: { perView: 2 },
       renderMode: "performance",
     },
     [
