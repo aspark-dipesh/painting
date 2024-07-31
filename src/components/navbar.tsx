@@ -1,4 +1,6 @@
+"use client";
 import { ICategory } from "@/interface";
+import CartContext from "@/store/CartContext";
 import {
   AlignJustify,
   Calendar,
@@ -10,9 +12,11 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 
 export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
+  const { cart } = useContext(CartContext);
+  console.log(cart);
   return (
     <header className="">
       <div className="w-full bg-[#f6f2ef] border-b border-[#e5dbcd] ">
@@ -73,11 +77,17 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
             <Calendar className="w-6 h-6" />
             <span className="text-xs ">WorkShop</span>
           </div>
-          <div className="flex flex-col items-center ">
+          {/* <div className="flex flex-col items-center ">
             <CircleUserRound className="w-6 h-6" />
             <span className="text-xs ">Sign In/Up</span>
-          </div>
-          <Link href="/cart" className="flex flex-col items-center">
+          </div> */}
+          <Link href="/cart" className="flex flex-col items-center relative">
+            {cart?.length > 0 && (
+              <div className="absolute h-5 w-5 -top-4 -right-3 bg-rose-600 rounded-full text-white flex items-center justify-center">
+                <span className="text-xs font-bold">{cart?.length}</span>
+              </div>
+            )}
+
             <ShoppingBasket className="w-6 h-6" />
             <span className="text-xs ">Bag</span>
           </Link>
@@ -113,11 +123,11 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
               >
                 Sale
               </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
+              {/* <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
                 <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
                   8
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
