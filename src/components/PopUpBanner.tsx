@@ -1,9 +1,11 @@
 "use client";
+import { IBanner } from "@/interface";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useOnClickOutside, useSessionStorage, useTimeout } from "usehooks-ts";
 const images = [
@@ -11,7 +13,7 @@ const images = [
   "/media/pop/pop2.png",
   "/media/pop/pop3.png",
 ];
-export function PopUpBanner() {
+export function PopUpBanner({ PopupBanners }: { PopupBanners: IBanner[] }) {
   const [value, setValue, removeValue] = useSessionStorage("pop-viewed", false);
 
   const [showPopup, setShowPopup] = useState(false);
@@ -79,9 +81,19 @@ export function PopUpBanner() {
             </svg>
           </button>
           <div ref={sliderRef} className="keen-slider relative">
-            {images.map((image, index) => (
-              <div key={index} className="keen-slider__slide aspect-[3/4]">
-                <Image src={image} alt="" fill className="object-contain" />
+            {PopupBanners.map((banner, index) => (
+              <div key={index} className="keen-slider__slide">
+                <Link
+                  href={banner.launch_url || "/"}
+                  onClick={() => setShowPopup(false)}
+                >
+                  <Image
+                    src={banner.image}
+                    alt=""
+                    fill
+                    className="object-contain !relative rounded-md"
+                  />
+                </Link>
               </div>
             ))}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-between">

@@ -4,8 +4,9 @@ import { useKeenSlider } from "keen-slider/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HeadLine from "../HeadLine";
 import PaintCard from "../PaintCard";
+import { IProduct } from "@/interface";
 
-export function FeaturedItems() {
+export function FeaturedItems({ products }: { products: IProduct[] }) {
   const animation = { duration: 20000 };
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
     {
@@ -63,30 +64,11 @@ export function FeaturedItems() {
       <div className="">
         <HeadLine title="Featured Painting" path="/collection" />
         <div ref={sliderRef} className="keen-slider relative">
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image1.jpg" />
-          </div>
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image3.jpg" />
-          </div>
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image20.jpg" />
-          </div>
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image2.jpg" />
-          </div>
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image19.jpg" />
-          </div>
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image4.jpg" />
-          </div>
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image8.jpg" />
-          </div>
-          <div className="keen-slider__slide p-2">
-            <PaintCard src="/media/images/image9.jpg" />
-          </div>
+          {products.slice(0, 6)?.map((product) => (
+            <div className="keen-slider__slide p-2" key={product.id}>
+              <PaintCard product={product} />
+            </div>
+          ))}
 
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-between">
             <button

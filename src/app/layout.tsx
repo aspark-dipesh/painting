@@ -6,7 +6,7 @@ import { poppins } from "@/components/ui/font";
 import { PopUpBanner } from "@/components/PopUpBanner";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
-import { ICategory } from "@/interface";
+import { IBanner, IBio, ICategory } from "@/interface";
 
 export const metadata: Metadata = {
   title: "Painter Krishna",
@@ -17,19 +17,31 @@ async function GetCategoryList(): Promise<ICategory[]> {
   if (!res.ok) throw new Error("Failed to fetch data");
   return await res.json();
 }
-export default function RootLayout({
+async function GetPopUpBanner(): Promise<IBanner[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/popup-banner/`);
+  if (!res.ok) throw new Error("Failed to fetch data");
+  return await res.json();
+}
+async function GetBio(): Promise<IBio> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bio/`);
+  if (!res.ok) throw new Error("Failed to fetch data");
+  return await res.json();
+}
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const categories = GetCategoryList();
+  const categories = await GetCategoryList();
+  const banners = await GetPopUpBanner();
+  const bio = await GetBio();
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <PopUpBanner />
-        <Navbar />
+      <body className={poppins.className + " text-gray-600"}>
+        <PopUpBanner PopupBanners={banners} />
+        <Navbar categories={categories} />
         <main className="min-h-[80vh] container mt-2">{children}</main>
-        <Footer />
+        <Footer Bio={bio} />
       </body>
     </html>
   );

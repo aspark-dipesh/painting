@@ -1,4 +1,6 @@
-export default function Footer() {
+import { IBio } from "@/interface";
+
+export default function Footer({ Bio }: { Bio: IBio }) {
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">

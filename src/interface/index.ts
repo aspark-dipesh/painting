@@ -20,3 +20,23 @@ export interface IProduct {
   price: string;
   discounted_price: string;
 }
+
+export interface IBanner {
+  id: number;
+  title: string;
+  image: string;
+  launch_url: string;
+  sub_title: string;
+  button_title: string;
+}
+
+export interface IBio {
+  id: number;
+  title: string;
+  logo: string;
+  copyright: string;
+  facebook: string;
+  instagram: string;
+  twitter: string;
+  phone: string;
+}

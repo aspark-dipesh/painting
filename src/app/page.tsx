@@ -5,20 +5,32 @@ import { ContactUs } from "@/components/home/ContactUs";
 import CTA from "@/components/home/CTA";
 import { FeaturedItems } from "@/components/home/FeaturedItems";
 import Testimonial from "@/components/home/Testimonial";
-import { ICategory } from "@/interface/index";
+import { IBanner, ICategory, IPagination, IProduct } from "@/interface/index";
 async function GetCategoryList(): Promise<ICategory[]> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/`);
   if (!res.ok) throw new Error("Failed to fetch data");
   return await res.json();
 }
+async function GetProductList(): Promise<IPagination<IProduct>> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/`);
+  if (!res.ok) throw new Error("Failed to fetch data");
+  return await res.json();
+}
+async function GetBanner(): Promise<IBanner[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/banner/`);
+  if (!res.ok) throw new Error("Failed to fetch data");
+  return await res.json();
+}
 export default async function Home() {
   const categories = await GetCategoryList();
+  const products = await GetProductList();
+  const banners = await GetBanner();
   return (
     <>
       {/* Hero section */}
-      <Banner />
+      <Banner banners={banners} />
       {/* featured section */}
-      <FeaturedItems />
+      <FeaturedItems products={products.results} />
       {/* cta section 1 */}
       <CTA />
       <CategorySection categories={categories} />

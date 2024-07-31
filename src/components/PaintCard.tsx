@@ -9,11 +9,8 @@ interface IProps {
 const PaintCard = ({ product }: IProps) => {
   return (
     <>
-      <Link
-        href={`/${product.slug}`}
-        className="block rounded-lg p-2 shadow-sm shadow-indigo-900"
-      >
-        <div className="w-full aspect-[4/3] relative overflow-hidden rounded-lg z-0">
+      <Link href={`/${product.slug}`} className="block rounded-sm shadow-md ">
+        <div className="w-full aspect-[4/3] relative overflow-hidden rounded-md z-0">
           <Image
             fill
             src={product.featured_image}
@@ -22,7 +19,7 @@ const PaintCard = ({ product }: IProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <div className="mt-2">
+        <div className="mt-2 p-2">
           <dl>
             <div>
               <dt className="sr-only">Price</dt>
@@ -35,7 +32,9 @@ const PaintCard = ({ product }: IProps) => {
             <div>
               <dt className="sr-only">name</dt>
 
-              <dd className="font-medium uppercase">{product.title}</dd>
+              <dd className="font-medium capitalize text-gray-500">
+                {product.title}
+              </dd>
             </div>
           </dl>
 

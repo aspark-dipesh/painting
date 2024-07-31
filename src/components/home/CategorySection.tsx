@@ -20,6 +20,7 @@ export default function CategorySection({
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-2 gap-4">
         {categories.map((category) => (
           <CategoryCard
+            slug={category.slug}
             key={category.id}
             title={category.title}
             image={category.featured_image}

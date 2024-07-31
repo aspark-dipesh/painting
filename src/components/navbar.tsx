@@ -86,116 +86,29 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
       <div className="mx-auto container   text-base  uppercase hidden  lg:flex">
         <div className="w-full  border-2 border-rose-600 flex text-white rounded-md relative">
           <div className="bg-rose-600 w-full flex items-center py-0 px-1 ">
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
+            {categories?.map((category) => (
+              <div
+                className="group h-full flex flex-1 min-w-fit items-center"
+                key={category.id}
               >
-                Wall Painting
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  1
-                </div>
+                <Link
+                  href={`/collection/${category.slug}`}
+                  className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
+                >
+                  {category.title}
+                </Link>
+                {/* <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
+                  <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
+                    1
+                  </div>
+                </div> */}
               </div>
-            </div>
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
-              >
-                Oil painting
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  2
-                </div>
-              </div>
-            </div>
-
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
-              >
-                Acrylic
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  3
-                </div>
-              </div>
-            </div>
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
-              >
-                Watercolor
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  4
-                </div>
-              </div>
-            </div>
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
-              >
-                Sketch
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  5
-                </div>
-              </div>
-            </div>
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
-              >
-                Sculpture
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  6
-                </div>
-              </div>
-            </div>
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
-              >
-                Spiritual
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  7
-                </div>
-              </div>
-            </div>
-            <div className="group h-full flex flex-1 min-w-fit items-center">
-              <Link
-                href="/collection"
-                className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-white"
-              >
-                Hand Painting
-              </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
-                <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
-                  8
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div className=" text-rose-600 flex items-center  ">
             <div className="group h-full flex flex-1 min-w-fit items-center p-2  px-4 ">
               <Link
-                href="/collection"
+                href="/collection/sale"
                 className="border-transparent py-1 transition-all duration-300 border-b-2 hover:border-rose-600"
               >
                 Sale
