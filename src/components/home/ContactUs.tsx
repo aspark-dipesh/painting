@@ -26,7 +26,7 @@ export async function ContactUs() {
                 </div>
                 <Link
                   target="blank"
-                  href="mailto:krishna.studio@gmail.com"
+                  href={`mailto:${bio.email || "krishna.studio@gmail.com"}`}
                   className="text-[#007bff] text-sm ml-3"
                 >
                   <small className="block">Mail</small>
