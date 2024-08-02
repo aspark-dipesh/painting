@@ -12,7 +12,9 @@ async function GetCategoryList(): Promise<ICategory[]> {
   return await res.json();
 }
 async function GetProductList(): Promise<IPagination<IProduct>> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/products/?filter=featured`
+  );
   if (!res.ok) throw new Error("Failed to fetch data");
   return await res.json();
 }

@@ -19,6 +19,7 @@ export interface IProduct {
   featured_image: string;
   price: string;
   discounted_price: string;
+  quantity: number;
 }
 
 export interface IBanner {

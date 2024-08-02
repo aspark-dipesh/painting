@@ -1,18 +1,20 @@
+"use client";
 import { ICategory } from "@/interface";
+import CartContext from "@/store/CartContext";
 import {
   AlignJustify,
   Calendar,
-  CircleUserRound,
   MapPin,
   Search,
   ShoppingBasket,
-  UserRound,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { Suspense, useContext } from "react";
+import SearchBox from "./Search";
 
 export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
+  const { cart } = useContext(CartContext);
   return (
     <header className="">
       <div className="w-full bg-[#f6f2ef] border-b border-[#e5dbcd] ">
@@ -42,29 +44,9 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
           </div>
         </div>
         <div className="flex items-center mt-2 justify-between md:justify-end gap-3 text-rose-600">
-          <div className="relative hidden md:block">
-            <label htmlFor="Search" className="sr-only">
-              Search
-            </label>
-
-            <input
-              type="text"
-              id="Search"
-              placeholder="Search for..."
-              className="w-full rounded-md border-gray-200 py-1.5 pe-10 shadow-sm sm:text-sm"
-            />
-
-            <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-              <button
-                type="button"
-                className="text-gray-600 hover:text-gray-700"
-              >
-                <span className="sr-only">Search</span>
-
-                <Search className="w-5 h-5 text-rose-600 " />
-              </button>
-            </span>
-          </div>
+          <Suspense>
+            <SearchBox />
+          </Suspense>
           <div className="flex flex-col items-center ">
             <MapPin className="w-6 h-6" />
             <span className="text-xs">Store</span>
@@ -73,11 +55,17 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
             <Calendar className="w-6 h-6" />
             <span className="text-xs ">WorkShop</span>
           </div>
-          <div className="flex flex-col items-center ">
+          {/* <div className="flex flex-col items-center ">
             <CircleUserRound className="w-6 h-6" />
             <span className="text-xs ">Sign In/Up</span>
-          </div>
-          <Link href="/cart" className="flex flex-col items-center">
+          </div> */}
+          <Link href="/cart" className="flex flex-col items-center relative">
+            {cart?.length > 0 && (
+              <div className="absolute h-5 w-5 -top-4 -right-3 bg-rose-600 rounded-full text-white flex items-center justify-center">
+                <span className="text-xs font-bold">{cart?.length}</span>
+              </div>
+            )}
+
             <ShoppingBasket className="w-6 h-6" />
             <span className="text-xs ">Bag</span>
           </Link>
@@ -113,11 +101,11 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
               >
                 Sale
               </Link>
-              <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
+              {/* <div className="absolute top-full left-0 right-0 h-96 z-50 bg-white group-hover:opacity-100 hidden group-hover:block">
                 <div className="h-96 w-full border-2 border-rose-600 text-rose-600">
                   8
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

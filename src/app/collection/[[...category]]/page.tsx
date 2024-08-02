@@ -1,34 +1,52 @@
 import Pagination from "@/components/Pagination";
 import PaintCard from "@/components/PaintCard";
 import { IPagination, IProduct } from "@/interface";
+import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 async function GetProductList({
   page,
+  category,
+  filter,
+  search,
 }: {
   page: string;
+  category?: string;
+  search?: string;
+  filter?: string;
 }): Promise<IPagination<IProduct>> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/products/?page=${page}`
+    `${process.env.NEXT_PUBLIC_API_URL}/products/?page=${page}${
+      category ? `&category=${category}` : ""
+    } ${search ? `&search=${search}` : ""} ${filter ? `&filter=${filter}` : ""}`
   );
   if (!res.ok) throw new Error("Failed to fetch data");
   return await res.json();
 }
 export default async function Collection({
+  params,
   searchParams,
 }: {
+  params: {
+    category: string[];
+  };
   searchParams: ParsedUrlQuery;
 }) {
   const page = (searchParams.page || 1) as string;
-  const products = await GetProductList({ page });
+  const search = searchParams.search as string;
+  const category = params?.category ? params.category[0] : undefined;
+  const products = await GetProductList({ page, category, search });
   const totalPage = Math.ceil(products.count / 10);
   return (
     <>
       <section>
         <div className="mx-auto container px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           <header>
-            <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
+            <Link
+              href="/collection"
+              className="text-xl font-bold text-gray-900 sm:text-3xl underline"
+            >
               Our Collection
-            </h2>
+            </Link>
           </header>
 
           <div className="mt-8 block lg:hidden">
@@ -587,7 +605,7 @@ export default async function Collection({
                   </li>
                 ))}
               </ul>
-              <Pagination totalPages={totalPage} />
+              {totalPage > 1 && <Pagination totalPages={totalPage} />}
             </div>
           </div>
         </div>

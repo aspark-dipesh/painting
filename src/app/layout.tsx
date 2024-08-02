@@ -7,6 +7,8 @@ import { PopUpBanner } from "@/components/PopUpBanner";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
 import { IBanner, IBio, ICategory } from "@/interface";
+import { CartContextProvider } from "@/store/CartContext";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Painter Krishna",
@@ -38,10 +40,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className + " text-gray-600"}>
-        <PopUpBanner PopupBanners={banners} />
-        <Navbar categories={categories} />
-        <main className="min-h-[80vh] container mt-2">{children}</main>
-        <Footer Bio={bio} />
+        <CartContextProvider>
+          <PopUpBanner PopupBanners={banners} />
+          <Navbar categories={categories} />
+          <main className="min-h-[80vh] container mt-2">{children}</main>
+          <Footer Bio={bio} />
+        </CartContextProvider>
+        <Toaster position="top-center" />
       </body>
     </html>
   );

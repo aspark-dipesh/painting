@@ -1,9 +1,11 @@
 "use client";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useContext, useRef, useState } from "react";
 import ImageZoom from "./ImageZoom";
 import { IProduct } from "@/interface";
+import CartContext from "@/store/CartContext";
 
 const ProductDetail = ({ product }: { product: IProduct }) => {
+  const { addToCart } = useContext(CartContext);
   const resultRef = useRef<HTMLDivElement>(null);
   const handleZoom = useCallback(
     (src: string, width: number, height: number, x: number, y: number) => {
@@ -117,6 +119,7 @@ const ProductDetail = ({ product }: { product: IProduct }) => {
           <div className="mt-8 max-w-md">
             <button
               type="button"
+              onClick={() => addToCart({ ...product, quantity: 1 })}
               className="w-full mt-4 px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded"
             >
               Add to cart
