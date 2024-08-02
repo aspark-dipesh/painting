@@ -40,4 +40,6 @@ export interface IBio {
   instagram: string;
   twitter: string;
   phone: string;
+  email: string;
+  address: string;
 }
