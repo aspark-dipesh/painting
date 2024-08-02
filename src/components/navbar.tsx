@@ -4,19 +4,17 @@ import CartContext from "@/store/CartContext";
 import {
   AlignJustify,
   Calendar,
-  CircleUserRound,
   MapPin,
   Search,
   ShoppingBasket,
-  UserRound,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
+import { Suspense, useContext } from "react";
+import SearchBox from "./Search";
 
 export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
   const { cart } = useContext(CartContext);
-  console.log(cart);
   return (
     <header className="">
       <div className="w-full bg-[#f6f2ef] border-b border-[#e5dbcd] ">
@@ -46,29 +44,9 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
           </div>
         </div>
         <div className="flex items-center mt-2 justify-between md:justify-end gap-3 text-rose-600">
-          <div className="relative hidden md:block">
-            <label htmlFor="Search" className="sr-only">
-              Search
-            </label>
-
-            <input
-              type="text"
-              id="Search"
-              placeholder="Search for..."
-              className="w-full rounded-md border-gray-200 py-1.5 pe-10 shadow-sm sm:text-sm"
-            />
-
-            <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-              <button
-                type="button"
-                className="text-gray-600 hover:text-gray-700"
-              >
-                <span className="sr-only">Search</span>
-
-                <Search className="w-5 h-5 text-rose-600 " />
-              </button>
-            </span>
-          </div>
+          <Suspense>
+            <SearchBox />
+          </Suspense>
           <div className="flex flex-col items-center ">
             <MapPin className="w-6 h-6" />
             <span className="text-xs">Store</span>
