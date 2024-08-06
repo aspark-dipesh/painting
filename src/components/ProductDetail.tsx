@@ -119,6 +119,7 @@ const ProductDetail = ({ product }: { product: IProduct }) => {
           </div>
           <div className="mt-8 max-w-md">
             <button
+              type="button"
               onClick={() => addToCart({ ...product, quantity: 1 })}
               className="w-full mt-4 px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded"
             >
@@ -133,8 +134,7 @@ const ProductDetail = ({ product }: { product: IProduct }) => {
                 ...product,
                 quantity: 1,
               })}`}`}
-              type="button"
-              className="w-full px-4 py-3  text-black font-bold rounded border text-center hover:bg-gray-500 relative"
+              className="w-full px-4 py-3  text-black font-bold rounded border text-center hover:bg-gray-500 flex"
             >
               Buy Now
             </Link>
