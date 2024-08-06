@@ -14,8 +14,8 @@ const SearchBox = () => {
     router.push(`/collection/?search=${search}`);
   };
   return (
-    <div>
-      <form className="relative hidden md:block" onSubmit={handleSearch}>
+    <div className="">
+      <form className="relative" onSubmit={handleSearch}>
         <label htmlFor="Search" className="sr-only">
           Search
         </label>
@@ -30,7 +30,7 @@ const SearchBox = () => {
         />
 
         <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
-          <button type="button" className="text-gray-600 hover:text-gray-700">
+          <button type="submit" className="text-gray-600 hover:text-gray-700">
             <span className="sr-only">Search</span>
 
             <Search className="w-5 h-5 text-rose-600 " />
