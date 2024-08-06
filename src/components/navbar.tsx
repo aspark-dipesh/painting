@@ -20,7 +20,7 @@ export const Navbar = ({ categories }: { categories?: ICategory[] }) => {
   const { cart } = useContext(CartContext);
   const ref = useRef(null);
   const [showMenu, setShowMenu] = useState(false);
-  console.log(showMenu);
+
   const handleClickOutside = () => setShowMenu(false);
   useOnClickOutside(ref, handleClickOutside);
   return (

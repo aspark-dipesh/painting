@@ -8,7 +8,7 @@ import { useContext } from "react";
 const CartPage = () => {
   const { cart, decreaseQuantity, increaseQuantity, removeFromCart } =
     useContext(CartContext);
-  console.log(cart);
+
   const total = cart.reduce((a, b) => a + parseInt(b.price) * b.quantity, 0);
   if (cart.length < 1) {
     return (

@@ -61,7 +61,7 @@ export default function CheckoutForm() {
       .catch((err) => toast.error("Something went wrong"))
       .finally(() => setLoading(false));
   };
-  console.log(checkoutItems);
+
   return (
     <div className="font-[sans-serif] bg-white">
       <div className="p-6 lg:max-w-7xl max-w-2xl mx-auto">
