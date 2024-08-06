@@ -3,6 +3,7 @@ import React, { useCallback, useContext, useRef, useState } from "react";
 import ImageZoom from "./ImageZoom";
 import { IProduct } from "@/interface";
 import CartContext from "@/store/CartContext";
+import Link from "next/link";
 
 const ProductDetail = ({ product }: { product: IProduct }) => {
   const { addToCart } = useContext(CartContext);
@@ -124,6 +125,20 @@ const ProductDetail = ({ product }: { product: IProduct }) => {
             >
               Add to cart
             </button>
+
+            {/* <button type="button" className="w-full mt-8 px-4 py-2 bg-transparent border-2 border-gray-800 text-gray-800 font-bold rounded">Read all reviews</button> */}
+          </div>
+          <div className="mt-2 max-w-md">
+            <Link
+              href={`/checkout?${`product=${JSON.stringify({
+                ...product,
+                quantity: 1,
+              })}`}`}
+              type="button"
+              className="w-full mt-4 px-4 py-3  text-black font-bold rounded border text-center hover:bg-gray-500"
+            >
+              Buy Now
+            </Link>
 
             {/* <button type="button" className="w-full mt-8 px-4 py-2 bg-transparent border-2 border-gray-800 text-gray-800 font-bold rounded">Read all reviews</button> */}
           </div>
