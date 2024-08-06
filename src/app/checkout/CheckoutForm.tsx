@@ -1,14 +1,25 @@
 "use client";
+import { IProduct } from "@/interface";
 import CartContext from "@/store/CartContext";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function CheckoutForm() {
+  const searchParams = useSearchParams();
+  const Product = searchParams.get("product");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { cart, clearCart } = useContext(CartContext);
+  const [checkoutItems, setCheckoutItems] = useState<IProduct[]>();
+  useEffect(() => {
+    if (Product) {
+      setCheckoutItems([JSON.parse(Product)]);
+    } else {
+      setCheckoutItems(cart);
+    }
+  }, [Product, cart]);
   const [formData, setFormData] = useState({
     order_detail: {
       customer_name: "",
@@ -22,12 +33,6 @@ export default function CheckoutForm() {
         country: "",
       },
     },
-    order_items: cart.map((item) => {
-      return {
-        product: item.id,
-        quantity: item.quantity,
-      };
-    }),
   });
   const PlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +42,15 @@ export default function CheckoutForm() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...formData,
+        order_items: checkoutItems?.map((item) => {
+          return {
+            product: item.id,
+            quantity: item.quantity,
+          };
+        }),
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -48,6 +61,7 @@ export default function CheckoutForm() {
       .catch((err) => toast.error("Something went wrong"))
       .finally(() => setLoading(false));
   };
+  console.log(checkoutItems);
   return (
     <div className="font-[sans-serif] bg-white">
       <div className="p-6 lg:max-w-7xl max-w-2xl mx-auto">
@@ -353,7 +367,7 @@ export default function CheckoutForm() {
                   Order Summary
                 </h2>
                 <div className="space-y-6 mt-10">
-                  {cart.map((product) => (
+                  {checkoutItems?.map((product) => (
                     <div
                       className="grid sm:grid-cols-2 items-start gap-6"
                       key={product.id}
@@ -393,7 +407,7 @@ export default function CheckoutForm() {
                   Total
                   <span className="ml-auto">
                     $
-                    {cart.reduce(
+                    {checkoutItems?.reduce(
                       (a, b) => a + parseInt(b.price) * b.quantity,
                       0
                     )}
